@@ -7,18 +7,20 @@ export default class LinkedList {
   }
 
   append(value) {
+    const newNode = new Node(value);
     if (this.head === null) {
-      this.head = value;
-      this.tail = value;
+      this.head = newNode;
+      this.tail = newNode;
       return;
     }
-    this.tail.nextNode = value;
-    this.tail = value;
+    this.tail.nextNode = newNode;
+    this.tail = newNode;
   }
 
   prepend(value) {
-    value.nextNode = this.head;
-    this.head = value;
+    const newNode = new Node(value);
+    newNode.nextNode = this.head;
+    this.head = newNode.nextNode;
   }
 
   size(node = this.head) {
